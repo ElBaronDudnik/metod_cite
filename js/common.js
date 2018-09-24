@@ -1,8 +1,8 @@
 $(function() {
 
-	$('.menu__icon').on('click', function() {
+	$('.hamburger').on('click', function() {
       $('.menu_main').toggleClass('menu_state_open');
-      $('.menu__icon').toggleClass('menu_state_open');
+      $('.hamburger').toggleClass('is-active');
     });
 
 	const bg = ['first','second', 'third','forth'];
@@ -15,51 +15,67 @@ $(function() {
     });
 
 	var height = parseInt($('.partners').css('height'))+parseInt($('.partners').css('margin-top'));
-	var textHeight = parseInt($('.text').css('height'));
-	$('.text').css('height', textHeight-height+'px');
-
-
-    var rangeSlider = function(){
-  		var slider = $('.range-slider'),
-      	range = $('.range-slider__range'),
-      	value = $('.range-slider__value');
-
-      	range.each(function(){
-      		var val = $(this).val();
-	      	$(this).css({'background':'-webkit-linear-gradient(left ,#f5e700 0%,#f5e700 '+val+'%,#999999 '+val+'%, #999999 100%)'});
-      	})
-      	
-    
-  		slider.each(function(){
-
-	    value.each(function(){
-	      var value = $(this).prev().attr('value');
-	      $(this).html(value);
-	    });
-
-	    range.on('input', function(){
-	      $(this).next(value).html(this.value);
-	      var val = $(this).val();
-	      $(this).css({'background':'-webkit-linear-gradient(left ,#f5e700 0%,#f5e700 '+val+'%,#999999 '+val+'%, #999999 100%)'});
-	    });
-	  });
-	};
+	var textHeight = parseInt($('.content').css('height'));
+	console.log(textHeight)
+	$('.text-partners').css('height', textHeight-height+'px');
 
 	
 
-rangeSlider();
+	$(".lang_menu").on('click', function() {
+		$(".lang_submenu").toggleClass('open');
+	});
+
+	/*range styling*/
+
+	
+	var sliders = document.getElementsByClassName('range');
 
 
-	var map;
-	function initMap() {
+	[].slice.call(sliders).forEach(function (slider, index) {
 
-            // В переменной map создаем объект карты GoogleMaps и вешаем эту переменную на <div id="map"></div>
-            map = new google.maps.Map(document.getElementById('map'), {
-                // При создании объекта карты необходимо указать его свойства
-                // center - определяем точку на которой карта будет центрироваться
-                center: {lat: 50.4501, lng: 30.5234},
-                // zoom - определяет масштаб. 0 - видно всю платнеу. 18 - видно дома и улицы города.
-                zoom: 13
-            });
-        }
+	    noUiSlider.create(slider, {
+	        range: {
+	        min: 0,
+	        max: 1000
+	    },
+	    behaviour: 'tap-drag',
+	    step: 100,
+	    tooltips: true,
+    	format: wNumb({
+        	decimals: 0
+    	}),
+	    start: [0],
+	    connect: [true, true]
+	    });
+
+
+	    var connect = slider.querySelectorAll('.noUi-connect');
+		var classes = ['c-1-color', 'c-2-color'];
+
+		for (let i = 0; i < connect.length; i++) {
+		    connect[i].classList.add(classes[i]);
+	}
+	});
+	
+	
+
+});
+
+
+$(window).resize(function(){
+	var content = $('.content');
+	$.each(content,function(index){
+		let header = $(this).siblings('.header').css('height');
+		console.log(header)
+		let footer = $(this).siblings('.footer').css('height');
+		console.log(footer)
+		let sum = parseFloat(header) + parseFloat(footer);
+		console.log(sum)
+		let winHeight = $(window).height();
+		console.log(winHeight)
+		let height = winHeight-sum + 'px';
+		$(this).css('height', height);
+		console.log(height)
+	})
+	
 });
