@@ -33,7 +33,6 @@ function animateSubheading(text, i) {
 
 function animateHeadingNew(text, i) {
     document.getElementById("heading_new").innerHTML = text.substring(0, i);
-    console.log('Привет')
     i++;
     if (i > text.length) {
         animateSubheadingNew("multifunctional company", 1);
@@ -45,8 +44,6 @@ function animateHeadingNew(text, i) {
 function animateSubheadingNew(text, i) {
     document.getElementById("subheading_new").innerHTML = text.substring(0, i);
     i++;
-    
-    
     setTimeout("animateSubheadingNew('" + text + "'," + i + ")", 50);
 }
 
