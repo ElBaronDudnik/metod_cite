@@ -2,10 +2,9 @@ $(document).ready(function() {
 
 	$('.hamburger').on('click', function() {
 		let data = $(this).data('parent');
-		console.log(data);
       $('.burg_menu').filter(function(){return $(this).data("parent") == data}).toggleClass('menu_state_open');
       $(this).toggleClass('is-active');
-
+      $('nav .social_menu').toggle();
     });
 
 	$('.owl-carousel').owlCarousel({

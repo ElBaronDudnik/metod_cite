@@ -58,9 +58,9 @@ function animateMain() {
 }
 $(document).ready(function() {
     animatePreloader();
-    animateMain();
 });
 
+window.onload = function(){animateMain();}
 
 window.addEventListener("load", function() {
     preloder.style.display = "none";
