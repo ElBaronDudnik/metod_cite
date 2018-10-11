@@ -1,67 +1,51 @@
 $(function() {
 
 	$('.hamburger').on('click', function() {
-      $('.menu_main').toggleClass('menu_state_open');
-      $('.hamburger').toggleClass('is-active');
+		let data = $(this).data('parent');
+		console.log(data);
+      $('.burg_menu').filter(function(){return $(this).data("parent") == data}).toggleClass('menu_state_open');
+      $(this).toggleClass('is-active');
+
     });
 
-	const bg = ['first','second', 'third','forth'];
-	let i = 0
+	$('.owl-carousel').owlCarousel({
+	    margin:10,
+	    loop:true,
+	    autoWidth:true,
+	    items:4,
+	    autoplay:true,
+	    autoplayTimeout:1000,
+	    autoplayHoverPause:true,
+	    paginationSpeed : 400,
+	    smartSpeed: 1500,
+	})
 
-    $('.button_striped').on('click', function(){
-    	(i>2)?(i=0):(i++)
-    	let param = `url(../img/${bg[i]}_bg.png`;
-    	$('.section').css("background-image", param);
-    });
 
 	var height = parseInt($('.partners').css('height'))+parseInt($('.partners').css('margin-top'));
-	var textHeight = parseInt($('.content').css('height'));
+	var textHeight = parseInt($('.nine_section-content').css('height'));
 	$('.text-partners').css('height', textHeight-height+'px');
 
-	
+	var height = parseInt($('.forth_section-content h2').css('height'))+parseInt($('.forth_section-content h2').css('margin-top'))+parseInt($('.forth_section-content small').css('height'));
+	var textHeight = parseInt($('.forth_section-content').css('height'));
+	$('form').css('height', textHeight-height+'px');
 
 	$(".lang_menu").on('click', function() {
 		$(".lang_submenu").toggleClass('open');
 	});
 
-	/*wNumb*/
-	
+	$(document).ready(function(){
+     $('select').awselect({
+	    background: "none", //the dark blue background
+		active_background:"rgb(0, 0, 0, .8)", // the light blue background
+		placeholder_color: "#fff", // the light blue placeholder color
+		placeholder_active_color: "#fff", // the dark blue placeholder color
+		option_color:"#fff", // the option colors
+		vertical_padding: "5px", //top and bottom padding
+		horizontal_padding: "5px", // left and right padding,
+        immersive: false // immersive option, demonstrated at the next example
+		});
+	});
 
-	/*range styling*/
-
-	
-	var sliders = document.getElementsByClassName('range');
-
-
-	/*[].slice.call(sliders).forEach(function (slider, index) {
-
-	    noUiSlider.create(slider, {
-	        range: {
-	        min: 0,
-	        max: 10000
-	    },
-	    behaviour: 'tap-drag',
-	    step: 1000,
-	    tooltips: true,
-    	format: wNumb({
-        	decimals: 0
-    	}),
-	    start: [0],
-	    connect: [true, true]
-	    });
-
-
-	    var connect = slider.querySelectorAll('.noUi-connect');
-		var classes = ['c-1-color', 'c-2-color'];
-
-		for (let i = 0; i < connect.length; i++) {
-		    connect[i].classList.add(classes[i]);
-	}
-	
-	var sliderValue = slider.noUiSlider.options.range.max 	;
-	console.log(sliderValue);
-
-	});*/
 
 	var slider1 = document.getElementById('slider1');
 	var slider2 = document.getElementById('slider2');
@@ -93,7 +77,7 @@ $(function() {
 		    		value = parseInt(value); 	
 		    		if (value>999999) {
 		            	value = value/1000000>>0;
-		            	value = value + 'Ml';
+		            	value = value + 'ML';
 		            }
 		            if (value>9999) {
 		            	value = value/1000>>0;
@@ -103,7 +87,7 @@ $(function() {
 		            return value;
 		        }
 		    },
-	    start: [0],
+	    start: [2500],
 	    connect: [true, true]
 	    });
 
@@ -133,7 +117,7 @@ $(function() {
 		    		value = parseInt(value); 	
 		    		if (value>999999) {
 		            	value = value/1000000>>0;
-		            	value = value + 'Ml';
+		            	value = value + 'ML';
 		            }
 		            if (value>9999) {
 		            	value = value/1000>>0;
@@ -143,7 +127,7 @@ $(function() {
 		            return value;
 		        }
 		    },
-	    start: [0],
+	    start: [100000],
 	    connect: [true, true]
 	    });
 
@@ -155,10 +139,17 @@ $(function() {
 	    behaviour: 'tap-drag',
 	    step: 6,
 	    tooltips: true,
-    	format: wNumb({
-        	decimals: 0
-    	}),
-	    start: [0],
+    	format: {
+		    from: function(value) {
+		            value = parseInt(value);
+		            return value;
+		        },
+		    to: function(value) {
+		    		value = parseInt(value);
+		            return value;
+		        }
+		    },
+	    start: [24],
 	    connect: [true, true]
 	    });
 	
@@ -181,6 +172,14 @@ $(window).resize(function(){
 		let winHeight = $(window).height();
 		let height = winHeight-sum + 'px';
 		$(this).css('height', height); 	
-	})
+	});
+
+	var height = parseInt($('.partners').css('height'))+parseInt($('.partners').css('margin-top'));
+	var textHeight = parseInt($('.nine_section-content').css('height'));
+	$('.text-partners').css('height', textHeight-height+'px');
+
+	var height = parseInt($('.forth_section-content h2').css('height'))+parseInt($('.forth_section-content h2').css('margin-top'))+parseInt($('.forth_section-content small').css('height'));
+	var textHeight = parseInt($('.forth_section-content').css('height'));
+	$('form').css('height', textHeight-height+'px');
 	
 });
