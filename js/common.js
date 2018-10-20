@@ -4,7 +4,7 @@ $(document).ready(function() {
 		let data = $(this).data('parent');
       $('.burg_menu').filter(function(){return $(this).data("parent") == data}).toggleClass('menu_state_open');
       $(this).toggleClass('is-active');
-      $('nav .social_menu').toggle();
+      $('nav .social_menu').toggleClass('none_class');
     });
 
 	$('.owl-carousel').owlCarousel({
@@ -19,6 +19,12 @@ $(document).ready(function() {
 	    smartSpeed: 1500,
 	})
 
+	$(".button_next").on("click", function (event) {
+		var top = $('#next').offset().top
+		alert(top)
+        $('body,html').animate({scrollTop: top}, 1500);
+    });
+    
 
 	var height = parseInt($('.partners').css('height'))+parseInt($('.partners').css('margin-top'));
 	var textHeight = parseInt($('.nine_section-content').css('height'));
@@ -26,6 +32,7 @@ $(document).ready(function() {
 
 	var height = parseInt($('.forth_section-content h2').css('height'))+parseInt($('.forth_section-content h2').css('margin-top'))+parseInt($('.forth_section-content small').css('height'));
 	var textHeight = parseInt($('.forth_section-content').css('height'));
+	console.log(textHeight-height)
 	$('form').css('height', textHeight-height+'px');
 
 	$(".lang_menu").on('click', function() {
@@ -65,14 +72,37 @@ $(document).ready(function() {
      	$('.header_title').hide();
      	$('.search_output').show();
      	$('.blogmenu').hide();
+     	$('.blogmenu-rubrica').hide();
      });
       $('.search_field i').on('click', function(){
      	$('.search_field').hide();
      	$('.header_title').show();
      	$('.search_output').hide();
      	$('.blogmenu').show();
+     	$('.blogmenu-rubrica').show();
      })
 
+     
+	
+
+      /*Scripts for blog-rubrica*/
+      //$('.left_side-blogmenu-rubrica .header_title h2').hide();
+      //$('.blogmenu-rubrica').css('left','-500px');
+      //$('.left_side-sub_blogmenu-rubrica').show().css({"left":"0", "background":"none"})
+      
+      	/*$('.left_side-blogmenu-rubrica .header_title h2').html('Новости').addClass('h3').before('<i class="fa fa-angle-left"></i>')
+      	$('.blogmenu-rubrica').html('<li class="sub_blogmenu-item"><a href="#">Самоинкапсуляция поля</a></li><li class="sub_blogmenu-item"><a href="#">Замена простого поля объектом</a></li><li class="sub_blogmenu-item"><a href="#">Замена значения ссылкой</a></li><li class="sub_blogmenu-item"><a href="#">Замена ссылки значением</a></li><li class="sub_blogmenu-item"><a href="#">Замена поля-массива объектом</a></li><li class="sub_blogmenu-item"><a href="#">Дублирование видимых данных</a></li><li class="sub_blogmenu-item"><a href="#">Замена однонаправленной связи</a></li><li class="sub_blogmenu-item"><a href="#">Инкапсуляция поля</a></li><li class="sub_blogmenu-item"><a href="#">Инкапсуляция данных</a></li><li class="sub_blogmenu-item"><a href="#">Замена кодирования типа классом</a></li><li class="sub_blogmenu-item"><a href="#">Замена кодирования типа подклассом</a></li><li class="sub_blogmenu-item"><a href="#">Замена подкласса полями</a></li>')
+     	$('.blogmenu-rubrica').addClass('sub_blogmenu').removeClass('blogmenu')*/
+  	
+    /*$('.left_side-blogmenu-rubrica').css('left','-500px');
+    $('.left_side-sub_blogmenu-rubrica').filter(function(){return $(this).data("value") == 'news'}).css('left', '0').show().addClass('left_side-blogmenu') 	
+
+
+     $('.fa-angle-left').on('click', function(){
+     	$('.left_side-blogmenu-rubrica .header_title h2').html('Blog').removeClass('h3')
+     	console.log('Hello')
+     })
+     /*the end*/
 
 
      /*$(document).mouseup(function (e) {
