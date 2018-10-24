@@ -5,8 +5,10 @@ $(document).ready(function(){
 		if ($(this).scrollTop() > 2) {
 	      $('.text_header .line').show(200);
 	      $('.text_header h2').css({"font-size": "1.5rem", "padding-bottom": "0"});
+	      $('.text_header .text-attr').css('padding-bottom', '2rem');
 	    } else {
-	      $('.text_header h2').css('font-size', '3rem')
+	     	$('.text_header h2').css({"font-size": "3rem", "padding-bottom": "1rem"});
+	      $('.text_header .text-attr').css('padding-bottom', '1rem');
 	      $('.text_header .line').hide(200);
 	    }
 		
@@ -25,8 +27,9 @@ $(document).ready(function(){
 	
 	$('.fa-angle-left').on('click', function(){
 		$('.left_side-blogmenu-rubrica').removeClass('initial_state').animate({'left': '0'}, 1000);
-		$('.left_side-sub_blogmenu .top_five').hide()
-		$('.fa-angle-left').hide()
+		$('.left_side-sub_blogmenu .top_five').hide();
+		$('.fa-angle-left').hide();
+		$('.page_overflow').show();
 	})
 
 	var item = $('.blogmenu-item')
