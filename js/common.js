@@ -43,7 +43,7 @@ $(document).ready(function() {
      
 	
      $('.blogmenu-item').on('click', function(){
-     	$('.page_overflow').show();
+     	if (!$('.left_side-blogmenu-rubrica').hasClass('initial_state')){$('.page_overflow').show(); }
      	var notThis = $('.blogmenu-item').not(this);
      	if (notThis.hasClass('active')){
      		notThis.children('.left_side-sub_blogmenu').hide();
