@@ -1,0 +1,786 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	outline: none
+	overflow-x: hidden
+	text-transform: uppercase
+	color: $text
+	input, textarea
+		border: 1px solid #e1e1e1
+		border-radius: 3px
+		background-color: transparent
+		padding: 10px 15px
+		margin: 10px
+		font-style: italic
+		&::placeholder
+			color: #c4c4c4
+	
+h3
+	font-size: 1.125em
+	color: $accent
+	letter-spacing: 0.5em
+	font-weight: 300
+p
+	text-transform: none
+
+
+.container-fluid
+	padding: 0
+.img-responsive
+	display: block
+	max-width: 100%
+	min-height: 0
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+.center
+	margin: 0 auto
+
+b, strong
+	font-weight: bold
+
+/*hamburger-menu*/
+.menu__icon 
+	margin: 30px 0
+	display: none
+	width: 2.8125em
+	height: 2.1875em
+	position: relative
+	cursor: pointer
+	span
+		display: block
+		position: absolute
+		height: 0.4375em
+		width: 100%
+		background: #4f4f4f
+		border-radius: 9px
+		opacity: 1
+		left: 0
+		transform: rotate(0deg)
+		transition: .25s ease-in-out
+		&:nth-child(1)
+			top: 0px
+		&:nth-child(2), &:nth-child(3)
+			top: 0.8125em
+		&:nth-child(4)
+			top: 1.625em
+			
+
+
+/*Styling index.html*/
+.menu_container
+	display: flex
+	width: 100%
+	justify-content: space-between
+.logo 
+	margin: 30px 0
+	width: 8.1875em
+	height: 2.1875em
+	float: left
+	overflow: hidden
+
+.menu
+	margin: 30px 0
+	padding-bottom: 5px
+	overflow: hidden  
+	ul
+		display: flex
+		justify-content: flex-end
+		font-weight: bold
+		line-height: 1.714
+		margin-bottom: 0
+		li
+			padding: 5px 10px 
+			list-style: none
+			text-align: center
+			border: 3px solid transparent;
+			transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+			
+			a
+				text-decoration: none
+				font-size: 14px
+				color: $text
+				transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+				&:hover
+					color: darken($text, 50%)
+
+.menu_item-top::before
+	content: ""
+	display: inline-block
+	background: transparent
+	width: 18px
+	height: 1.5px
+	transform: translateY(-5px)
+	margin-right: 12px
+	transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+.menu_item-top:hover:before
+	background: darken($text, 50%)	
+
+.slaider
+	text-align: center
+	&_title
+		position: absolute
+		width: 100%
+		top: 0
+		display: flex
+		height: 100%
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		margin: 0 auto
+		h1
+			font-size: 3em
+			color: $reverse
+			background-color: $accent
+			font-weight: 300
+			display: inline
+			padding: 3px 40px
+			line-height: 1
+		h3
+			margin-top: 15px
+
+.menu_border
+
+	padding: 8px 0
+	border-top: 1.5px solid lighten($text, 40%)
+	border-bottom: 1.5px solid lighten($text, 40%)
+	width: 100%
+	margin-bottom: 20px
+	ul
+		margin-bottom: 0
+		justify-content: center
+		li
+			position: relative
+			padding-right: 20px
+	li::after
+		content: ""
+		position: absolute
+		height: 26px
+		width: 1.5px
+		background-color: lighten($text, 40%)
+		transform: rotate(15deg)
+		display: block
+		top: 0
+		right: 2px
+	li:last-child:after
+		height: 0
+
+.content
+	background-color: #fafafa
+	margin-top: -25px
+.masonry 
+    column-count: 3
+    column-gap: 1em
+    &_item 
+    	background-color: #eee
+    	display: inline-block
+    	margin: 0 0 1em
+    	width: 100%
+    	position: relative
+    	.img-responsive
+    		position: relative
+    &_over
+    	a
+    		height: 100%
+    		width: 100%
+    		display: inline-block
+    	position: absolute
+	    top: 0 
+	    left: 0
+	    width: 100%
+	    height: 100%
+	    transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+	    &:hover
+	    	background-color: rgba(0,0,0,.3)
+		    .plus
+		    	top: 50%
+		    	right: 50%
+		    	position: absolute
+		    .plus1, .plus2
+		    	background-color: #fff
+		    	position: absolute	
+		    .plus1
+		    	height: 21px
+		    	width: 2px
+		    	transform: translateX(9px)
+		    .plus2
+		    	height: 2px
+		    	width: 21px
+		    	transform: translateY(9px)
+
+
+
+
+.button
+	justify-content: center
+	display: flex
+	padding-bottom: 20px
+	cursor: pointer
+	&_self
+		background-color: lighten( $text, 10%)
+		color: $reverse
+		text-align: center
+		padding: 6px 32px
+		border-radius: 3px
+		transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+		&:hover
+			background-color: $text
+.logo_footer
+	margin: 50px auto
+	float: none
+.social
+	border-top: 1px solid lighten($text, 40%)
+	border-bottom: 1px solid lighten($text, 40%)
+.menu-social
+	list-style: none
+	margin: 20px 0
+	display: flex
+	justify-content: center
+	width: 100%
+	&_item
+		padding-right: 50px
+		a
+			color: $text
+			font-size: 12px
+
+.footer
+	text-transform: uppercase
+	font-size: 12px
+	display: flex
+	justify-content: center
+	&_text
+		margin: 30px auto
+		.darken
+			color: darken($text, 70%)
+			font-weight: 500
+.owl-dots
+	position: absolute
+	bottom: 0
+	margin: 0 auto
+	width: 100%
+.owl-theme .owl-dots .owl-dot span
+	width: 0.625em
+	height: 0.625em
+	background-color: #fff
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span
+	background: #fff
+	box-shadow: 0px 0px 0px 0.1875em #000000 inset
+	border-radius: 50%
+	outline: none
+
+/*Portfolio page*/
+
+.slaider_portfolio
+	.slaider_title
+		align-items: flex-start
+		margin-left: 12.5%
+
+/*About page*/
+.content_about, .content_value
+	padding-top: 40px
+
+.about_image
+	float: left
+
+.about_information
+	float: right
+
+
+/*Styling range slider*/
+
+*
+  box-sizing: border-box
+  &:before, &:after
+    box-sizing: border-box
+
+
+.range-slider
+  margin: 7px 0 0 0%
+  width: 100%
+  position: relative
+
+.range-slider__range
+  -webkit-appearance: none
+  width: calc(100% - (73px))
+  height: 10px
+  background: #ebebeb
+  outline: none
+  padding: 0
+  margin: 0
+  border: none
+  &::-webkit-slider-thumb
+    appearance: none
+    width: 13px
+    height: 13px
+    border-radius: 50%
+    background: #fff
+    cursor: pointer
+    transition: all .15s ease-in-out
+    &:hover
+    	box-shadow: 0px 0px 0px 3px #000000 inset
+  &:active::-webkit-slider-thumb
+  	box-shadow: 0px 0px 0px 3px #000000 inset
+  &::-moz-range-thumb
+    width: 10px
+    height: 10px
+    border: 0
+    border-radius: 50%
+    background: #fff
+    cursor: pointer
+    transition: all .15s ease-in-out
+    &:hover
+    	box-shadow: 0px 0px 0px 3px #000000 inset
+  &:active::-moz-range-thumb
+  	box-shadow: 0px 0px 0px 3px #000000 inset
+  &:focus::-webkit-slider-thumb
+  	box-shadow: 0px 0px 0px 4px #000000 inset
+
+.range-slider__value
+  display: inline-block
+  position: absolute
+  width: 50px
+  color: $reverse
+  line-height: 20px
+  text-align: center
+  background: #041608
+  padding: 3px 10px
+  margin-left: -72px
+  margin-top: -31px
+  &:after
+    position: absolute
+    bottom: -7px
+    left: 0
+    width: 0
+    height: 0
+    border-top: 7px solid transparent
+    border-left: 7px solid #041608
+    border-bottom: 7px solid transparent
+    content: ''
+
+.range-slider__range::-webkit-slider-runnable-track 
+    height: 10px
+    -webkit-appearance: none
+    color: #13bba4
+    margin-top: -1px
+
+input[type="range"]::-moz-range-progress 
+    background-color: #43e5f7
+    
+input[type="range"]::-moz-range-track  
+    background-color: #9a905d
+    
+input[type="range"]::-ms-fill-lower 
+    background-color: #43e5f7 
+    
+input[type="range"]::-ms-fill-upper  
+    background-color: #9a905d
+    
+
+\::-moz-range-track
+  background: #d7dcdf
+  border: 0
+
+input
+  &::-moz-focus-inner, &::-moz-focus-outer
+    border: 0
+/*The end of range styling*/
+
+.team_card, .value_card
+	background-color: $reverse
+	display: flex
+	flex-direction: column
+	margin-bottom: 70px
+	.team_img
+		background-color: #eee
+		text-align: center
+		height: 425px
+		overflow: hidden
+	.team_text, .value_text
+		padding: 30px
+	.team_title, .value_title
+		font-size: 18px
+		color: $accent
+		letter-spacing: 4px
+		font-weight: 300
+	.team_spec
+		text-transform: none
+		font-weight: 700
+		padding-bottom: 20px
+
+.pre_team, .pre-value
+	text-align: center
+	margin-top: 90px
+	margin-bottom: 60px 
+h2
+	font-size: 22px
+	color: $accent
+	letter-spacing: 8px
+	font-weight: 300
+footer
+	box-shadow: 0px -3px 3px 0px rgba(238,238,238,1)
+header
+	box-shadow: 0px 5px 3px 0px rgba(238,238,238,1)
+
+/*Styling Portfolio_details page*/
+.buttons
+	display: inline-block
+	padding: 20px 40px
+	border-right: 1px solid $grey
+	border-left: 1px solid $grey
+	
+	a
+		color: #071f08
+		font-weight: bold
+		font-size: 13px
+		padding: 0 10px
+	i
+		color: #071f08
+	&_show
+		text-align: right
+	&_next
+		border-left: none
+
+.content_portfolio
+	margin-top: 0
+
+/*Slick slider*/
+
+.content_portfolio
+	padding-bottom: 50px	
+.slider-for
+	width: 545px
+	height: 250px
+	margin: 72px 7px 10px 7px
+	overflow: hidden
+
+img
+	width: 100%
+	min-height: 100%
+
+.slider-nav
+	width: 560px
+	height: 85px
+	margin: auto
+	padding: 7px 0px 0px 0px
+	display: block
+	.item_min
+		margin: auto 7px
+
+.item_min.slick-slide.slick-current.slick-active::after
+	
+	content: ''
+	width: 100%
+	height: 100%
+	background-color: rgba(0,0,0,.5)
+	position: absolute
+	top: 0
+	left: 0
+
+
+.item_min.slick-slide.slick-current.slick-active
+	position: relative
+	transition: all 0.5s cubic-bezier(0, 0, 1, 1)
+
+	
+
+.slider-nav .slick-track
+	height: 85px
+
+.slick-arrow
+	display: none
+
+/*Styling content section in portfolio_details*/
+
+.content_titles
+	margin-top: 65px
+	h2
+		font-weight: 500
+	h6
+		text-transform: none
+		font-size: 16px
+.content_text
+	border-top: 1.5px solid #ccc
+	border-bottom: 1.5px solid #ccc
+	padding: 20px 0
+	margin: 20px 0
+	p
+		padding-top: 20px
+
+span.data, span.likes, span.author
+	text-transform: none
+	color: #555
+	font-weight: bold
+	padding-right: 20px
+	i
+		padding-right: 5px
+.content_descrip
+	h5
+		color: $accent
+i
+	padding-right: 5px
+.content_buttons
+	.share
+		background-color: #707070
+		color: $reverse
+		padding: 10px 15px
+		border: none
+		text-transform: uppercase
+		font-size: 12px
+	.social
+		border: none
+		display: inline-block
+		padding: 0 0 0 5px
+		margin-left: 10px
+		position: relative
+		.menu-social
+			margin: 5px 0 8px
+			padding-left: 5px 
+			.menu-social_item
+				padding-right: 15px
+		&:after
+		    position: absolute
+		    top: 14px 
+		    left: -7px
+		    width: 0
+		    height: 0
+		    border-top: 7px solid transparent
+		    border-right: 7px solid #e1e1e1
+		    border-bottom: 7px solid transparent
+		    content: ''
+.related
+	text-align: center
+	margin-top: 130px
+	h2
+		font-weight: 500
+		padding-bottom: 10px
+	p
+		padding-bottom: 25px
+		width: 50%
+		margin: 0 auto
+
+/*Styling Single Post page*/
+.single-post
+	&_content, &_form
+		background-color: #fafafa
+		padding-top: 60px
+	&_text
+		width: 90%
+		margin: 0 auto
+		padding: 20px 0
+	&_title
+		letter-spacing: 4px
+		font-weight: 300
+		text-align: center
+		font-size: 30px
+	&_tags
+		text-align: center
+		margin-bottom: 20px
+	&_heading
+		color: #000
+		margin: 30px 0 0 50px
+	&_input
+		display: flex
+		justify-content: space-between
+.form_title
+	text-align: center
+
+.single-post_form
+	form
+		margin-bottom: 60px
+		textarea
+			display: block
+			width: 100%
+		button
+			padding: 10px 35px
+			border: none
+			color: #fff
+			background-color: #000
+			border-radius: 3px
+			margin: 20px auto 
+			display: block
+
+
+
+
+blockquote
+  margin: 0
+  color: #909090
+  padding: 20px 20px 20px 40px
+  border: 1.5px solid #c8c8c8
+  border-left: 8px solid #c8c8c8
+  position: relative
+  font-family: 'PT Serif', serif;
+  font-weight: 700
+  p
+    font-style: italic
+    font-size: 18px
+    margin: 0
+
+/*Styling page Blog.html*/    
+
+.content_blog
+	margin-top: 0
+	padding-top: 70px
+.masonry_blog 
+    column-count: 2
+    text-transform: none
+    .masonry_item
+    	margin: 0 0 1em
+    	.blog-text
+    		background-color: #fff
+    		padding: 35px 45px
+    		h5
+    			font-size: 20px
+    			color: #000
+    		&_tag
+    			display: inline-block
+    			background-color: #000
+    			color: #fff
+    			font-weight: bold
+    			text-transform: uppercase
+    			padding: 5px 12px
+    			font-size: 13px
+    			margin-bottom: 30px
+    		&_author, &_data, &_likeshare
+    			color: #ccc
+    		&_text
+    			padding: 30px 0 45px 0
+    		&_data
+    			margin-right: 30%
+
+.blog_search
+	width: 100%
+	position: relative
+	margin-left: 0
+	&:focus
+		outline: none
+	&+i
+		position: absolute
+		display: inline-block
+		top: 17px
+		right: 25px
+		background-color: #999
+		color: #fff
+		border-radius: 3px
+		padding: 9px
+
+.blog-post
+	padding: 25px 30px
+	background-color: #fff
+	margin-bottom: 20px
+	.post_item
+		display: flex
+		align-items: center
+		img
+			width: 30%
+			height: 30%
+		p
+			display: inline-block
+			margin-bottom: 5px
+			line-height: 1.5
+		&-text
+			font-size: 16px
+			margin-left: 10px
+		.data
+			color: #ccc
+			font-size: 13px
+			font-weight: 300
+	&_popular
+		text-transform: none
+		padding-right: 10px
+		padding-bottom: 10px
+		.pop
+			border: 1px solid #eee
+			padding: 5px 20px
+			color: #9c9c9c
+			font-size: 13px
+			white-space: nowrap
+			margin: 0 3px 13px
+			display: inline-block
+			transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+			&:hover
+				background-color: #000
+				color: #fff
+				border: 1px solid #000
+.blog-post_title
+	text-align: center
+	background-color: #ebebeb
+	margin-bottom: 0
+	padding: 10px 0
+	position: relative
+	&:after
+		position: absolute
+		left: 50% 
+		bottom: -7px 
+		width: 0
+		height: 0
+		border-top: 7px solid #ebebeb
+		border-right: 7px solid transparent
+		border-left: 7px solid transparent
+		content: ''
+.insta_thumbs
+	column-count: 3
+	column-gap: 0.5em
+	img
+		margin: 0 0 0.5em
+
+/*Styling contact page*/
+.contact_office-info
+	padding-top: 80px
+	small
+		text-transform: none
+	.bold
+		font-weight: bold
+		color: #000
+	.single-post_form
+		padding-top: 0
+.value_img
+	height: 250px
+
+.contact_map
+	background: url(../img/maps.png) center center no-repeat #fafafa
+	min-height: 360px
+	position: relative
+	display: flex
+	justify-content: center
+	align-items: center
+	&-text
+		position: absolute
+		background: #fff
+		width: 326px
+		height: 128px
+		text-align: center
+		padding: 20px 0
+		&:after
+			position: absolute
+			left: 50% 
+			bottom: -25px 
+			width: 0
+			height: 0
+			border-top: 25px solid #fff
+			border-right: 10px solid transparent
+			border-left: 10px solid transparent
+			content: ''
+		h5
+			color: #000
+
+
+@import "media" // Always at the end

@@ -1,0 +1,92 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+// ≥1200px
++media-breakpoint-down(lg)
+	body
+		font-size: 20px
+
+// ≥992px
++media-breakpoint-down(md)
+	body
+		font-size: 16px
+	.menu__icon 
+		display: block
+	.menu_main
+		display: none
+	.menu_state_open.menu__icon span:nth-child(1)
+		top: 18px
+		width: 0%
+		left: 50%
+	.menu_state_open.menu__icon span:nth-child(2)
+		transform: rotate(45deg)
+	.menu_state_open.menu__icon span:nth-child(3) 
+    	transform: rotate(-45deg)
+	.menu_state_open.menu__icon span:nth-child(4) 
+    	top: 18px
+    	width: 0%
+    	left: 50%
+	.menu_main.menu_state_open
+		display: block
+		position: absolute
+		z-index: 100
+		background-color: #fff
+		padding-top: 30px
+		top: 3em
+		left: 0
+		height: 100vh
+		width: 100%
+		nav
+			ul
+				display: flex
+				flex-direction: column
+				justify-content: center
+				.menu_item-top::after
+					content: ""
+					display: inline-block
+					background: transparent
+					width: 18px
+					height: 1.5px
+					transform: translateY(-5px)
+					margin-left: 12px
+					transition: all 0.5s cubic-bezier(0, 0, 1, 1);
+				.menu_item-top:hover:after
+					background: darken($text, 50%)
+
+// ≥768px
++media-breakpoint-down(sm)
+	body
+		font-size: 12px
+	.masonry 
+		column-count: 2
+	.menu_border
+		display: none
+	.content
+		margin-top: 0
+		padding-top: 20px
+
+
+// ≥576px
++media-breakpoint-down(xs)
+	body
+		font-size: 8px
+	.menu_container
+		font-size: 12px
+
+/*==========  Mobile First  ==========*/
+
+// ≤576px
++media-breakpoint-up(sm)
+
+
+// ≤768px
++media-breakpoint-up(md)
+
+
+// ≤992px
++media-breakpoint-up(lg)
+
+// ≤1200px
++media-breakpoint-up(xl)
